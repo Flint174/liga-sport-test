@@ -1,0 +1,45 @@
+{
+  "items": [
+    {
+      "owner": {
+        "account_id": 14303885,
+        "reputation": 11,
+        "user_id": 10332476,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/9b2f009f060e1d451bf85c7992cbe4b2?s=256&d=identicon&r=PG&f=1",
+        "display_name": "Mehrnoosh",
+        "link": "https://stackoverflow.com/users/10332476/mehrnoosh"
+      },
+      "is_accepted": false,
+      "score": 0,
+      "last_activity_date": 1570606988,
+      "creation_date": 1570606988,
+      "answer_id": 58299292,
+      "question_id": 58282378,
+      "content_license": "CC BY-SA 4.0",
+      "body": "<p><code>data</code> property in component must be a function, so in your case it should be written like this:</p>\n\n<pre><code>data () {\n return {\n   aha: \"\"\n }\n}\n</code></pre>\n"
+    },
+    {
+      "owner": {
+        "account_id": 6913418,
+        "reputation": 698,
+        "user_id": 5308508,
+        "user_type": "registered",
+        "profile_image": "https://i.stack.imgur.com/h38lD.jpg?s=256&g=1",
+        "display_name": "Muhammad Vakili",
+        "link": "https://stackoverflow.com/users/5308508/muhammad-vakili"
+      },
+      "is_accepted": true,
+      "score": 1,
+      "last_activity_date": 1570522174,
+      "creation_date": 1570522174,
+      "answer_id": 58282451,
+      "question_id": 58282378,
+      "content_license": "CC BY-SA 4.0",
+      "body": "<p>You are trying to access the <code>length</code> field of type <code>number</code>.</p>\n\n<p><code>this.len</code> is number, so <code>this.len.length</code> is undefined. you just need to use <code>this.len</code>:</p>\n\n<pre><code>var instance = new Vue({\n    el: \"#instance\",\n    data: {\n        aha: \"\"\n    },\n    computed: {\n        len: function(){\n            return this.aha.length;\n        },\n        plus : function(){\n            return this.len+ 2;\n        }\n    }\n});\n</code></pre>\n"
+    }
+  ],
+  "has_more": false,
+  "quota_max": 300,
+  "quota_remaining": 197
+}
