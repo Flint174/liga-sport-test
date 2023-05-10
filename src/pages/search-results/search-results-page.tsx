@@ -7,6 +7,7 @@ import {
   getQuestions,
   getTagQuestions,
   getUserQuestions,
+  sortDetails,
   sortQuestions,
 } from "../../services/store";
 import { Table } from "../../components/table";
@@ -14,16 +15,24 @@ import type { TableColumn, TableDataRow } from "../../components/table";
 import { useNavigate } from "react-router-dom";
 import { htmlDecode } from "../../utils/decoders";
 import { Question } from "../../models/store";
+import styles from "./search-results-page.module.css";
+
+enum TableKeys {
+  AUTHOR = "owner.user_id",
+  TITLE = "title",
+  ANSWER_COUNT = "answer_count",
+  TAGS = "tags",
+}
 
 const columns: TableColumn[] = [
   {
-    key: "author",
+    key: TableKeys.AUTHOR,
     name: "Автор",
   },
-  { key: "title", name: "Темы" },
-  { key: "answerCount", name: "Кол-во ответов" },
+  { key: TableKeys.TITLE, name: "Темы" },
+  { key: TableKeys.ANSWER_COUNT, name: "Кол-во ответов" },
   {
-    key: "tags",
+    key: TableKeys.TAGS,
     name: "Тэги",
   },
 ];
@@ -35,8 +44,9 @@ export const SearchResultsPage: FC = () => {
     (questions: Question[]): TableDataRow[] =>
       questions.map((question) => ({
         id: `${question.question_id || ""}`,
-        author: (
+        [TableKeys.AUTHOR]: (
           <span
+            className={styles["text--link"]}
             onClick={() =>
               question.owner?.user_id &&
               getUserQuestions(`${question.owner.user_id}`)
@@ -45,21 +55,31 @@ export const SearchResultsPage: FC = () => {
             {htmlDecode(question?.owner?.display_name)}
           </span>
         ),
-        title: (
-          <span onClick={() => navigate(`/question/${question.question_id}`)}>
+        [TableKeys.TITLE]: (
+          <span
+            className={styles["text--link"]}
+            onClick={() => navigate(`/question/${question.question_id}`)}
+          >
             {htmlDecode(question.title)}
           </span>
         ),
-        answerCount: (
-          <span onClick={() => navigate(`/question/${question.question_id}`)}>
+        [TableKeys.ANSWER_COUNT]: (
+          <span
+            className={styles["text--link"]}
+            onClick={() => navigate(`/question/${question.question_id}`)}
+          >
             {question.answer_count}
           </span>
         ),
-        tags: (
+        [TableKeys.TAGS]: (
           <>
             {question.tags?.map((tag, index, { length }) => (
               <span key={index}>
-                <span onClick={() => getTagQuestions(tag)}>
+                <span
+                  className={styles["text--link"]}
+                  onClick={() => getTagQuestions(tag)}
+                >
+       
                   {htmlDecode(tag)}
                 </span>
                 {length > index + 1 ? ", " : ""}
@@ -90,7 +110,7 @@ export const SearchResultsPage: FC = () => {
       {!!details.length && (
         <section>
           <h2>Панель быстрого доступа</h2>
-          <Table columns={columns} data={details} />
+          <Table columns={columns} data={details} sort={sortDetails} />
         </section>
       )}
     </>

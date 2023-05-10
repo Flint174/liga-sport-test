@@ -39,19 +39,13 @@ export const $details = createStore<Question[]>([]);
 export const getUserQuestions = createEffect(fetchUserQuestions);
 export const getTagQuestions = createEffect(fetchTagQuestions);
 
+export const sortDetails = createEvent<{
+  key: string;
+  order: "asc" | "desc";
+}>();
+
 $details
   .on(getUserQuestions.doneData, (_, { items }) => items)
   .on(getTagQuestions.doneData, (_, { items }) => items)
-  .on(sortQuestions, (state, { key, order }) => orderBy(state, [key], [order]))
+  .on(sortDetails, (state, { key, order }) => orderBy(state, [key], [order]))
   .reset(setSearch);
-
-// export interface DetailsParams {
-//   type: "user" | "tag";
-//   value: string;
-// }
-
-// export const $detailsParams = createStore<DetailsParams | null>(null);
-
-// export const setDetailsParams = createEvent<DetailsParams>();
-
-// $detailsParams.on(setDetailsParams, (_, params) => params);

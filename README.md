@@ -2,7 +2,7 @@
 
 Приложение разработано в рамках тестового задания
 
-Можно попровать [тут](https://flint174.github.io/liga-sport-test/)
+Можно попробовать [тут](https://flint174.github.io/liga-sport-test/)
 
 ## Цель
 
