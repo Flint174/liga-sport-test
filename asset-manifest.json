@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/liga-sport-test/static/css/main.f5305f18.css",
-    "main.js": "/liga-sport-test/static/js/main.bbc79533.js",
+    "main.css": "/liga-sport-test/static/css/main.44ce5ec1.css",
+    "main.js": "/liga-sport-test/static/js/main.97394379.js",
     "static/js/787.67007473.chunk.js": "/liga-sport-test/static/js/787.67007473.chunk.js",
     "index.html": "/liga-sport-test/index.html",
-    "main.f5305f18.css.map": "/liga-sport-test/static/css/main.f5305f18.css.map",
-    "main.bbc79533.js.map": "/liga-sport-test/static/js/main.bbc79533.js.map",
+    "main.44ce5ec1.css.map": "/liga-sport-test/static/css/main.44ce5ec1.css.map",
+    "main.97394379.js.map": "/liga-sport-test/static/js/main.97394379.js.map",
     "787.67007473.chunk.js.map": "/liga-sport-test/static/js/787.67007473.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f5305f18.css",
-    "static/js/main.bbc79533.js"
+    "static/css/main.44ce5ec1.css",
+    "static/js/main.97394379.js"
   ]
 }
