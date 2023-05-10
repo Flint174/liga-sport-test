@@ -79,6 +79,7 @@ export const SearchResultsPage: FC = () => {
                   className={styles["text--link"]}
                   onClick={() => getTagQuestions(tag)}
                 >
+       
                   {htmlDecode(tag)}
                 </span>
                 {length > index + 1 ? ", " : ""}
